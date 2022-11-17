@@ -1,6 +1,6 @@
 import { Controller, Delete, Get, Post, Put } from '@nestjs/common';
 
-@Controller('user')
+@Controller('/user')
 export class UserController {
   @Get()
   getUser() {
