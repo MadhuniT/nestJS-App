@@ -18,7 +18,7 @@ import { UserModule } from './user/user.module';
       password: null,
       database: 'Nestjs',
       entities: [User],
-      synchronize: true,
+      migrationsRun: true
     }),
   ],
 })
