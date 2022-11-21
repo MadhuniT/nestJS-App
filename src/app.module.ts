@@ -4,6 +4,8 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { User } from './user/entity/user.entity';
 import { UserModule } from './user/user.module';
+import { AuthController } from './auth/auth.controller';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   controllers: [AppController],
@@ -17,9 +19,12 @@ import { UserModule } from './user/user.module';
       username: 'root',
       password: null,
       database: 'Nestjs',
+      // synchronize: true,
+      migrationsRun: true,
       entities: [User],
-      migrationsRun: true
+     
     }),
+    AuthModule,
   ],
 })
 export class AppModule {}
