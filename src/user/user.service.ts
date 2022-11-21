@@ -17,16 +17,21 @@ export class UserService {
   }
 
   create(createUserDto: CreateUserDto) {
-    console.log(createUserDto)
     return this.userRepository.save(createUserDto);
   }
 
   update(updateUserDto: UpdateUserDto, userId: number) {
-    return this.userRepository.update(userId,updateUserDto);
+    return this.userRepository.update(userId, updateUserDto);
   }
 
   getAUser(userId: number) {
     return this.userRepository.findOne({ where: { id: userId } });
+  }
+
+  findbyEmail(email: string) {
+    return this.userRepository
+      .createQueryBuilder('user')
+      .where({ email }).getOne();
   }
 
   deleteUser(userId: number) {
